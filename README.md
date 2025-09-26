@@ -24,7 +24,7 @@
 ## 📸 插件截图
 
 ### 主界面
-![主界面](https://github.com/1774293824/ChromeClean/raw/main/Snipaste_2025-09-26_16-43-56.png)
+<img src="https://github.com/1774293824/ChromeClean/raw/main/Snipaste_2025-09-26_16-43-56.png" alt="主界面" width="300">
 
 ### 清理选项  
 <img src="https://github.com/1774293824/ChromeClean/raw/main/Snipaste_2025-09-26_16-44-19.png" alt="清理选项" width="500">
