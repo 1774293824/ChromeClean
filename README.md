@@ -1,0 +1,2 @@
+# ChromeClean
+一个专用于chrome浏览器或EDGE浏览器的缓存清理插件
