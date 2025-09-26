@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Clean Tool Setting</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      padding: 40px;
+      background: #f5f5f7;
+      color: #2c3e50;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #000000;
+      font-weight: 600;
+      text-align: center;
+      font-size: 22px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 25px;
+      margin-bottom: 25px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #2c3e50;
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: white;
+      font-size: 14px;
+      width: 100%;
+    }
+
+    label {
+      display: block;
+      margin: 6px 0;
+      font-size: 14px;
+    }
+
+    input[type=checkbox] {
+      margin-right: 6px;
+    }
+
+    .btn-group {
+      margin-top: 15px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-group button,
+    #clearBtn {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      color: white;
+      transition: background 0.3s ease;
+      flex: 1;
+      min-width: 100px;
+    }
+
+    #selectAll {
+      background: #2ecc71;
+    }
+
+    #selectNone {
+      background: #95a5a6;
+    }
+
+    #selectRecommended {
+      background: #27ae60;
+    }
+
+    #clearBtn {
+      background: #007aff;
+      font-size: 16px;
+      padding: 14px 22px;
+      margin: 25px auto 0 auto;
+      display: block;
+      width: 250px;
+    }
+
+    .btn-group button:hover,
+    #clearBtn:hover {
+      opacity: 0.9;
+    }
+
+    /* loading 效果 */
+    #clearBtn.loading {
+      color: transparent;
+      cursor: not-allowed;
+      position: relative;
+    }
+
+    #clearBtn.loading::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      margin: -10px 0 0 -10px;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h2>清理大师设置</h2>
+
+  <div class="card">
+    <h3>清理时间范围</h3>
+    <select id="timeRange">
+      <option value="1">最近 1 天</option>
+      <option value="7">最近 7 天</option>
+      <option value="30">最近 1 个月</option>
+      <option value="all">全部时间</option>
+    </select>
+  </div>
+
+  <div class="card">
+    <h3>清理项目</h3>
+    <div id="checkboxes">
+      <label><input type="checkbox" value="cache"> 缓存</label>
+      <label><input type="checkbox" value="downloads"> 下载历史</label>
+      <label><input type="checkbox" value="formData"> 表单数据</label>
+      <label><input type="checkbox" value="history"> 浏览历史</label>
+      <label><input type="checkbox" value="indexedDB"> IndexedDB</label>
+      <label><input type="checkbox" value="serviceWorkers"> Service Workers</label>
+      <label><input type="checkbox" value="cookies"> Cookies</label>
+      <label><input type="checkbox" value="localStorage"> 本地存储</label>
+      <label><input type="checkbox" value="passwords"> 保存的密码</label>
+    </div>
+
+    <div class="btn-group">
+      <button id="selectAll">全选</button>
+      <button id="selectNone">全不选</button>
+      <button id="selectRecommended">推荐选项</button>
+    </div>
+  </div>
+
+  <button id="clearBtn">🧹 一键清理</button>
+
+  <script src="options.js"></script>
+</body>
+
+</html>
