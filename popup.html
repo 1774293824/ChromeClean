@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Clean Tool</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      width: 220px;
+      background: #f9f9f9;
+      color: #111;
+    }
+
+    h2 {
+      margin: 0 0 16px 0;
+      font-size: 17px;
+      font-weight: 600;
+      color: #111;
+    }
+
+    select {
+      margin-bottom: 18px;
+      padding: 10px 14px;
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      background: #fff;
+      color: #111;
+      appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23111' viewBox='0 0 20 20'><path d='M5.25 7.5L10 12.5L14.75 7.5H5.25Z'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 12px;
+      padding-right: 30px;
+    }
+
+    #clearBtn {
+      position: relative;
+      width: 160px;
+      height: 46px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      background: linear-gradient(180deg, #007aff, #0056d8);
+      color: white;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    #clearBtn:hover:not(:disabled) {
+      transform: scale(1.03);
+      box-shadow: 0 6px 16px rgba(0, 122, 255, 0.35);
+    }
+
+    #clearBtn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 1.2s linear infinite;
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .checkmark {
+      display: inline-block;
+      width: 18px;
+      height: 12px;
+      border-left: 3px solid #fff;
+      border-bottom: 3px solid #fff;
+      transform: rotate(-45deg);
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    #settingsBtn {
+      margin-top: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <h2>Chrome 清理大师</h2>
+  <select id="timeRange">
+    <option value="1">最近 1 天</option>
+    <option value="7">最近 7 天</option>
+    <option value="30">最近 1 个月</option>
+    <option value="all">全部时间</option>
+  </select>
+  <br>
+  <button id="clearBtn">一键清理</button>
+  <br>
+  <button id="settingsBtn" title="打开设置">⚙️ 高级选项</button>
+  <script src="popup.js"></script>
+</body>
+</html>
